@@ -95,5 +95,47 @@ export default function (props){
 
 // export default Timer;
 
+import React from "react";
+
+class EssayForm extends React.Component{
+    constructor(props) {
+        super(props)
+        this.state = {
+            value: "Please,write essay about your favorite music,my favorite music mostly is rock music,also i like subgenres like:Pop punk,alternative rock,electro rock-Pop"};
+            
+        this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
+    }
+
+    handleChange(event) {
+        this.setState({value: event.target.value});
+    }
+    handleSubmit(event){
+        alert("Отправленное имя" + this.state.value);
+        event.preventDefault()
+    }
+    render(){
+        return(
+            <form onSubmit={this.handleSubmit}>
+                <label>
+                    Эссе:
+                    <textarea value={this.state.value} onChange={this.handleChange} />
+                </label>
+                <input type="submit" value="Отправить"/>
+            </form>
+        );
+    }
+}
+
+export default EssayForm;
+
+// {/*// choose a favorite fruit:*/}
+// {/*<select value={this.state.value} onChange={this.handleChange}>*/}
+// {/*    <option value="wildberries">ЛесныеЯгоды</option>*/}
+// {/*    <option value="kiwi">Киви</option>*/}
+// {/*    <option value="strawberry">Клубника</option>*/}
+// {/*    <option value="raspberry">Малина</option>*/}
+// {/*</select>*/}n
+
 
 
